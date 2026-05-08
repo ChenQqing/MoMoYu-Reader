@@ -24,8 +24,21 @@ struct ReadingView: View {
             minHeight: 300, idealHeight: settingsVM.settings.windowHeight
         )
         .contextMenu {
+            Button("返回书库") { readingVM.currentFileName = nil }
             Button("打开文件") { showFilePicker = true }
             Button("设置") { showSettings = true }
+
+            if !readingVM.chapters.isEmpty {
+                Divider()
+                Menu("目录") {
+                    ForEach(readingVM.chapters) { chapter in
+                        Button(chapter.title) {
+                            readingVM.jumpToChapter(chapter)
+                        }
+                    }
+                }
+            }
+
             Divider()
             Button("添加书签") {
                 readingVM.addBookmark(label: "书签 \(readingVM.bookmarks.count + 1)")
@@ -97,7 +110,10 @@ struct ReadingView: View {
             textColor: settingsVM.settings.textColor.nsColor,
             lineSpacing: settingsVM.settings.lineSpacing,
             hoverToShowEnabled: settingsVM.settings.hoverToShowEnabled,
-            isHovering: $isHovering
+            isHovering: $isHovering,
+            onScrollPositionChanged: { offset in
+                readingVM.updateScrollPosition(offset)
+            }
         )
         .animation(.easeInOut(duration: 0.2), value: isHovering)
     }

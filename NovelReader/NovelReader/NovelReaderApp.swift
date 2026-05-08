@@ -6,17 +6,11 @@ struct NovelReaderApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ReadingView(
-                readingVM: appState.readingVM,
-                settingsVM: appState.settingsVM
-            )
-            .environmentObject(appState)
-            .onAppear {
-                appState.openFileIfNeeded()
-            }
-            .background(WindowAccessor { window in
-                appState.configureWindow(window)
-            })
+            MainView(appState: appState)
+                .environmentObject(appState)
+                .background(WindowAccessor { window in
+                    appState.configureWindow(window)
+                })
         }
         .windowStyle(.hiddenTitleBar)
         .commands {
@@ -36,6 +30,25 @@ struct NovelReaderApp: App {
     }
 }
 
+/// Main view that switches between library and reading
+struct MainView: View {
+    @ObservedObject var appState: AppState
+
+    var body: some View {
+        if appState.readingVM.currentFileName != nil {
+            ReadingView(
+                readingVM: appState.readingVM,
+                settingsVM: appState.settingsVM
+            )
+        } else {
+            LibraryView(
+                readingVM: appState.readingVM,
+                settingsVM: appState.settingsVM
+            )
+        }
+    }
+}
+
 /// Top-level app state coordinator
 class AppState: ObservableObject {
     @Published var isSettingsOpen = false
@@ -43,15 +56,6 @@ class AppState: ObservableObject {
     let readingVM = ReadingViewModel()
     let settingsVM = SettingsViewModel()
     private let windowController = FloatingWindowController()
-
-    func openFileIfNeeded() {
-        // On first launch, prompt for file
-        if readingVM.currentFileName == nil {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.showFilePicker()
-            }
-        }
-    }
 
     func configureWindow(_ window: NSWindow) {
         // Apply floating level
@@ -64,10 +68,7 @@ class AppState: ObservableObject {
                 width: settings.windowWidth,
                 height: settings.windowHeight
             ),
-            content: ReadingView(
-                readingVM: readingVM,
-                settingsVM: settingsVM
-            )
+            content: MainView(appState: self)
         )
 
         // Close the default window, use our floating one

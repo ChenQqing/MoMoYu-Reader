@@ -5,6 +5,7 @@ enum PersistenceService {
         static let settings = "NovelReader.Settings"
         static let readingState = "NovelReader.ReadingState"
         static let bookmarks = "NovelReader.Bookmarks"
+        static let library = "NovelReader.Library"
     }
 
     // MARK: - Settings
@@ -59,5 +60,21 @@ enum PersistenceService {
         let appSupport = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
         let safeName = fileName.replacingOccurrences(of: "/", with: "_")
         return appSupport.appendingPathComponent("NovelReader/Bookmarks/\(safeName).json")
+    }
+
+    // MARK: - Book Library
+
+    static func saveBooks(_ books: [BookItem], to defaults: UserDefaults = .standard) {
+        if let data = try? JSONEncoder().encode(books) {
+            defaults.set(data, forKey: Keys.library)
+        }
+    }
+
+    static func loadBooks(from defaults: UserDefaults = .standard) -> [BookItem] {
+        guard let data = defaults.data(forKey: Keys.library),
+              let books = try? JSONDecoder().decode([BookItem].self, from: data) else {
+            return []
+        }
+        return books
     }
 }
