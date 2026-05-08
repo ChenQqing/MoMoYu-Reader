@@ -1,0 +1,37 @@
+name: NovelReader
+options:
+  bundleIdPrefix: com.novelreader
+  deploymentTarget:
+    macOS: "13.0"
+  xcodeVersion: "15.0"
+  generateEmptyDirectories: true
+
+targets:
+  NovelReader:
+    type: application
+    platform: macOS
+    sources:
+      - NovelReader
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.novelreader.app
+        INFOPLIST_FILE: NovelReader/Info.plist
+        SWIFT_VERSION: "5.9"
+        MACOSX_DEPLOYMENT_TARGET: "13.0"
+        CODE_SIGN_IDENTITY: "-"
+        CODE_SIGNING_REQUIRED: "NO"
+    scheme:
+      testTargets:
+        - NovelReaderTests
+
+  NovelReaderTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - NovelReaderTests
+    settings:
+      base:
+        SWIFT_VERSION: "5.9"
+        MACOSX_DEPLOYMENT_TARGET: "13.0"
+    dependencies:
+      - target: NovelReader
