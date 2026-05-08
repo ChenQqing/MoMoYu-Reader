@@ -59,13 +59,18 @@ struct ReadingContentView: NSViewRepresentable {
         Coordinator(isHovering: $isHovering)
     }
 
-    class Coordinator: NSObject {
+    class Coordinator: NSView {
         var isHovering: Binding<Bool>
         weak var scrollView: NSScrollView?
         weak var textView: NSTextView?
 
         init(isHovering: Binding<Bool>) {
             self.isHovering = isHovering
+            super.init(frame: .zero)
+        }
+
+        required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
         }
 
         override func mouseEntered(with event: NSEvent) {
