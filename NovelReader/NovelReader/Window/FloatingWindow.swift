@@ -19,10 +19,10 @@ class FloatingWindow: NSWindow {
         self.backgroundColor = .clear
         self.hasShadow = true
 
-        // Title bar
-        self.title = "NovelReader"
+        // Title bar — hide completely
         self.titlebarAppearsTransparent = true
         self.titleVisibility = .hidden
+        self.styleMask.remove(.titled)
 
         // Allow dragging from content area
         self.isMovableByWindowBackground = true

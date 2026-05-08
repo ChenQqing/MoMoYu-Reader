@@ -18,21 +18,28 @@ struct ReadingView: View {
             } else {
                 readingContentView
             }
-
-            // Toolbar overlay at top-right
-            VStack {
-                HStack {
-                    Spacer()
-                    toolbarButtons
-                }
-                .padding(8)
-                Spacer()
-            }
         }
         .frame(
             minWidth: 250, idealWidth: settingsVM.settings.windowWidth,
             minHeight: 300, idealHeight: settingsVM.settings.windowHeight
         )
+        .contextMenu {
+            Button("打开文件") { showFilePicker = true }
+            Button("设置") { showSettings = true }
+            Divider()
+            Button("添加书签") {
+                readingVM.addBookmark(label: "书签 \(readingVM.bookmarks.count + 1)")
+            }
+            if !readingVM.bookmarks.isEmpty {
+                Menu("书签") {
+                    ForEach(readingVM.bookmarks) { bookmark in
+                        Button(bookmark.label) {
+                            readingVM.goToBookmark(bookmark)
+                        }
+                    }
+                }
+            }
+        }
         .fileImporter(
             isPresented: $showFilePicker,
             allowedContentTypes: [.plainText]
@@ -50,33 +57,6 @@ struct ReadingView: View {
         .onDisappear {
             readingVM.saveState()
         }
-    }
-
-    private var toolbarButtons: some View {
-        HStack(spacing: 12) {
-            Button(action: { showFilePicker = true }) {
-                Image(systemName: "doc.badge.plus")
-                    .font(.system(size: 14))
-            }
-            .buttonStyle(.plain)
-            .help("打开文件 (⌘O)")
-
-            Button(action: { showSettings = true }) {
-                Image(systemName: "gear")
-                    .font(.system(size: 14))
-            }
-            .buttonStyle(.plain)
-            .help("设置 (⌘,)")
-
-            Button(action: { readingVM.addBookmark(label: "书签 \(readingVM.bookmarks.count + 1)") }) {
-                Image(systemName: "bookmark")
-                    .font(.system(size: 14))
-            }
-            .buttonStyle(.plain)
-            .help("添加书签")
-        }
-        .padding(6)
-        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 8))
     }
 
     @ViewBuilder
