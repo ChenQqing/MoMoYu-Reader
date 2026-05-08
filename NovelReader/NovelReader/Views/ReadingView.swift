@@ -18,29 +18,21 @@ struct ReadingView: View {
             } else {
                 readingContentView
             }
+
+            // Toolbar overlay at top-right
+            VStack {
+                HStack {
+                    Spacer()
+                    toolbarButtons
+                }
+                .padding(8)
+                Spacer()
+            }
         }
         .frame(
             minWidth: 250, idealWidth: settingsVM.settings.windowWidth,
             minHeight: 300, idealHeight: settingsVM.settings.windowHeight
         )
-        .toolbar {
-            ToolbarItemGroup {
-                Button(action: { showFilePicker = true }) {
-                    Image(systemName: "doc.badge.plus")
-                }
-                .help("Open File (⌘O)")
-
-                Button(action: { showSettings = true }) {
-                    Image(systemName: "gear")
-                }
-                .help("Settings (⌘,)")
-
-                Button(action: { readingVM.addBookmark(label: "Bookmark \(readingVM.bookmarks.count + 1)") }) {
-                    Image(systemName: "bookmark")
-                }
-                .help("Add Bookmark")
-            }
-        }
         .fileImporter(
             isPresented: $showFilePicker,
             allowedContentTypes: [.plainText]
@@ -60,6 +52,33 @@ struct ReadingView: View {
         }
     }
 
+    private var toolbarButtons: some View {
+        HStack(spacing: 12) {
+            Button(action: { showFilePicker = true }) {
+                Image(systemName: "doc.badge.plus")
+                    .font(.system(size: 14))
+            }
+            .buttonStyle(.plain)
+            .help("打开文件 (⌘O)")
+
+            Button(action: { showSettings = true }) {
+                Image(systemName: "gear")
+                    .font(.system(size: 14))
+            }
+            .buttonStyle(.plain)
+            .help("设置 (⌘,)")
+
+            Button(action: { readingVM.addBookmark(label: "书签 \(readingVM.bookmarks.count + 1)") }) {
+                Image(systemName: "bookmark")
+                    .font(.system(size: 14))
+            }
+            .buttonStyle(.plain)
+            .help("添加书签")
+        }
+        .padding(6)
+        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 8))
+    }
+
     @ViewBuilder
     private var backgroundView: some View {
         let settings = settingsVM.settings
@@ -77,10 +96,10 @@ struct ReadingView: View {
             Image(systemName: "book")
                 .font(.system(size: 48))
                 .foregroundColor(.secondary)
-            Text("Open a .txt file to start reading")
+            Text("打开 .txt 文件开始阅读")
                 .font(.headline)
                 .foregroundColor(.secondary)
-            Button("Open File") {
+            Button("打开文件") {
                 showFilePicker = true
             }
             .buttonStyle(.borderedProminent)

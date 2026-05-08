@@ -7,24 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02E867BF2E7368FEAEDA8816 /* ReadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890BEB6EDE29DE4F4A045DE0 /* ReadingState.swift */; };
 		08F04072FFAEF43B08A530D2 /* ReadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC0621529BD18B27646D24 /* ReadingViewModel.swift */; };
+		10F71204246B4AAF801A531A /* ReadingStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072C3B11508155B65070BD25 /* ReadingStateTests.swift */; };
+		1F21EE50C704F4F763E0336C /* EncodingDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC0B59C23C002E6087CBD2E /* EncodingDetector.swift */; };
+		3438FF43CADB788CCE214040 /* SettingsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B4AE21527A88CE02CA4F2C /* SettingsViewModelTests.swift */; };
 		425B41CA21018F8D3C475355 /* NovelReaderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5468FFD2CE9D9E4CDBA357 /* NovelReaderApp.swift */; };
+		4682F62F88426D4F54DF6252 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913276274D142A547E278830 /* AppSettings.swift */; };
+		4FCEE1C2C62E466C962680EF /* FloatingWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4873445B4923FDE784C3F9B /* FloatingWindowController.swift */; };
+		5320830615C497FCDCC38100 /* ReadingContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400ED245B8D94ECD85649355 /* ReadingContentView.swift */; };
+		5597BA8A7D16741D8C4DF8F0 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CED2EAEF9DA023F7DF80D1 /* Bookmark.swift */; };
+		6151C59E16EBC76AFA1B67CF /* BookmarkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB81E8560FBE6FB3C60743F /* BookmarkTests.swift */; };
+		76A8FAFCA9FD19E3C547DD71 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B06D4D88308B46BE6556CF /* PersistenceService.swift */; };
+		7D7236C69F96D1A1B2572859 /* FloatingWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA717222D1E2C6B4AACB009A /* FloatingWindow.swift */; };
+		81D8C083267DC7BCDB796B29 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487E928331377B0BB97E6897 /* SettingsView.swift */; };
+		873B4D5190F00A3E4A342217 /* ReadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B046870C5A5DE05B9A95EC /* ReadingView.swift */; };
+		93E4CBCAC556056AA51AB0CF /* ReadingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AD1517D67C1A2E3CD6775A /* ReadingViewModelTests.swift */; };
+		9F17D355C94120B08125FE20 /* SettingsComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34E69979E1CA7FC3FEBBE13 /* SettingsComponents.swift */; };
+		A4C540B7AD2B518B8C4ED3FF /* FileManagerServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BEC2F24CB01D0DD2352374 /* FileManagerServiceTests.swift */; };
+		AF9A111F86EF29555FF64BDC /* PersistenceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0C2A0434406F1F1BDABE89 /* PersistenceServiceTests.swift */; };
 		BDB3F425C48DA1BB2ADCEBC8 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA43903D7D4743E7BC39333 /* SettingsViewModel.swift */; };
-		BB1111111111111111111111 /* EncodingDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1111111111111111111111 /* EncodingDetector.swift */; };
-		BB2222222222222222222222 /* FileManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2222222222222222222222 /* FileManagerService.swift */; };
-		BB3333333333333333333333 /* EncodingDetectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3333333333333333333333 /* EncodingDetectorTests.swift */; };
-		BB4444444444444444444444 /* FileManagerServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4444444444444444444444 /* FileManagerServiceTests.swift */; };
-		BB5555555555555555555555 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5555555555555555555555 /* PersistenceService.swift */; };
-		BB6666666666666666666666 /* PersistenceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6666666666666666666666 /* PersistenceServiceTests.swift */; };
-		DD1111111111111111111111 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1111111111111111111111 /* AppSettings.swift */; };
-		DD2222222222222222222222 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2222222222222222222222 /* Bookmark.swift */; };
-		DD3333333333333333333333 /* ReadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3333333333333333333333 /* ReadingState.swift */; };
-		DD4444444444444444444444 /* ReadingContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4444444444444444444444 /* ReadingContentView.swift */; };
-		DD5555555555555555555555 /* ReadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5555555555555555555555 /* ReadingView.swift */; };
-		DD6666666666666666666666 /* SettingsComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6666666666666666666666 /* SettingsComponents.swift */; };
-		DD7777777777777777777777 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7777777777777777777777 /* SettingsView.swift */; };
-		DD8888888888888888888888 /* FloatingWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8888888888888888888888 /* FloatingWindow.swift */; };
-		DD9999999999999999999999 /* FloatingWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9999999999999999999999 /* FloatingWindowController.swift */; };
+		DE549BD9FE4414F062D9EF24 /* EncodingDetectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B0D4D6117AFF1725C5E2C3 /* EncodingDetectorTests.swift */; };
+		E2280F2D22736B64CFF4E6F2 /* FileManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C66BD5F6890CB4C238B763 /* FileManagerService.swift */; };
+		F2E7411CE34E1DBB728A3D06 /* AppSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BD2AA8143271B093F02EC8 /* AppSettingsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,34 +43,38 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		072C3B11508155B65070BD25 /* ReadingStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingStateTests.swift; sourceTree = "<group>"; };
 		12DB6F45CCFA3963AA9CE4BB /* .gitkeep */ = {isa = PBXFileReference; path = .gitkeep; sourceTree = "<group>"; };
+		1CB81E8560FBE6FB3C60743F /* BookmarkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkTests.swift; sourceTree = "<group>"; };
 		22CD6A5061111CDE92547DCE /* .gitkeep */ = {isa = PBXFileReference; path = .gitkeep; sourceTree = "<group>"; };
+		3BC0B59C23C002E6087CBD2E /* EncodingDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodingDetector.swift; sourceTree = "<group>"; };
+		400ED245B8D94ECD85649355 /* ReadingContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingContentView.swift; sourceTree = "<group>"; };
+		42AD1517D67C1A2E3CD6775A /* ReadingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingViewModelTests.swift; sourceTree = "<group>"; };
+		487E928331377B0BB97E6897 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		496B96BB838A6B30B58D2D5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		51D74D3C235CD57D52DF4300 /* NovelReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NovelReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		59CED2EAEF9DA023F7DF80D1 /* Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
 		63FC0621529BD18B27646D24 /* ReadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingViewModel.swift; sourceTree = "<group>"; };
 		6A6ECC4F33C3C7D730332C8B /* .gitkeep */ = {isa = PBXFileReference; path = .gitkeep; sourceTree = "<group>"; };
 		6BF090C5ACF0302B86DE0D27 /* .gitkeep */ = {isa = PBXFileReference; path = .gitkeep; sourceTree = "<group>"; };
+		6E0C2A0434406F1F1BDABE89 /* PersistenceServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceServiceTests.swift; sourceTree = "<group>"; };
+		70BD2AA8143271B093F02EC8 /* AppSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsTests.swift; sourceTree = "<group>"; };
+		72B0D4D6117AFF1725C5E2C3 /* EncodingDetectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodingDetectorTests.swift; sourceTree = "<group>"; };
+		78B4AE21527A88CE02CA4F2C /* SettingsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelTests.swift; sourceTree = "<group>"; };
+		79B046870C5A5DE05B9A95EC /* ReadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingView.swift; sourceTree = "<group>"; };
 		84F6160B61AD6C94040A3329 /* .gitkeep */ = {isa = PBXFileReference; path = .gitkeep; sourceTree = "<group>"; };
+		890BEB6EDE29DE4F4A045DE0 /* ReadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingState.swift; sourceTree = "<group>"; };
+		913276274D142A547E278830 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		926A46B94B83443595674FCB /* .gitkeep */ = {isa = PBXFileReference; path = .gitkeep; sourceTree = "<group>"; };
-		A813BD682E8427C9EA18216D /* .gitkeep */ = {isa = PBXFileReference; path = .gitkeep; sourceTree = "<group>"; };
-		AA1111111111111111111111 /* EncodingDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodingDetector.swift; sourceTree = "<group>"; };
-		AA2222222222222222222222 /* FileManagerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerService.swift; sourceTree = "<group>"; };
-		AA3333333333333333333333 /* EncodingDetectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodingDetectorTests.swift; sourceTree = "<group>"; };
-		AA4444444444444444444444 /* FileManagerServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerServiceTests.swift; sourceTree = "<group>"; };
-		AA5555555555555555555555 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
-		AA6666666666666666666666 /* PersistenceServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceServiceTests.swift; sourceTree = "<group>"; };
+		A4873445B4923FDE784C3F9B /* FloatingWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingWindowController.swift; sourceTree = "<group>"; };
 		AD5468FFD2CE9D9E4CDBA357 /* NovelReaderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovelReaderApp.swift; sourceTree = "<group>"; };
-		CC1111111111111111111111 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
-		CC2222222222222222222222 /* Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
-		CC3333333333333333333333 /* ReadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingState.swift; sourceTree = "<group>"; };
-		CC4444444444444444444444 /* ReadingContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingContentView.swift; sourceTree = "<group>"; };
-		CC5555555555555555555555 /* ReadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingView.swift; sourceTree = "<group>"; };
-		CC6666666666666666666666 /* SettingsComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsComponents.swift; sourceTree = "<group>"; };
-		CC7777777777777777777777 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		CC8888888888888888888888 /* FloatingWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingWindow.swift; sourceTree = "<group>"; };
-		CC9999999999999999999999 /* FloatingWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingWindowController.swift; sourceTree = "<group>"; };
+		BA717222D1E2C6B4AACB009A /* FloatingWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingWindow.swift; sourceTree = "<group>"; };
+		D6BEC2F24CB01D0DD2352374 /* FileManagerServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerServiceTests.swift; sourceTree = "<group>"; };
 		DE4ED5EECD65DCE8C42EB888 /* NovelReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NovelReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAA43903D7D4743E7BC39333 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		F2C66BD5F6890CB4C238B763 /* FileManagerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerService.swift; sourceTree = "<group>"; };
+		F34E69979E1CA7FC3FEBBE13 /* SettingsComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsComponents.swift; sourceTree = "<group>"; };
+		F8B06D4D88308B46BE6556CF /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -83,8 +92,8 @@
 			isa = PBXGroup;
 			children = (
 				6A6ECC4F33C3C7D730332C8B /* .gitkeep */,
-				AA2222222222222222222222 /* FileManagerService.swift */,
-				AA5555555555555555555555 /* PersistenceService.swift */,
+				F2C66BD5F6890CB4C238B763 /* FileManagerService.swift */,
+				F8B06D4D88308B46BE6556CF /* PersistenceService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -92,8 +101,8 @@
 		36D6AD5FE0F94656548CAAE0 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				AA4444444444444444444444 /* FileManagerServiceTests.swift */,
-				AA6666666666666666666666 /* PersistenceServiceTests.swift */,
+				D6BEC2F24CB01D0DD2352374 /* FileManagerServiceTests.swift */,
+				6E0C2A0434406F1F1BDABE89 /* PersistenceServiceTests.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -102,7 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				6BF090C5ACF0302B86DE0D27 /* .gitkeep */,
-				AA1111111111111111111111 /* EncodingDetector.swift */,
+				3BC0B59C23C002E6087CBD2E /* EncodingDetector.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -110,6 +119,9 @@
 		69C7CDC8BE131683B0A6BC29 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				70BD2AA8143271B093F02EC8 /* AppSettingsTests.swift */,
+				1CB81E8560FBE6FB3C60743F /* BookmarkTests.swift */,
+				072C3B11508155B65070BD25 /* ReadingStateTests.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -117,10 +129,9 @@
 		7CB7C2401DAA3137634163F1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A813BD682E8427C9EA18216D /* .gitkeep */,
-				CC1111111111111111111111 /* AppSettings.swift */,
-				CC2222222222222222222222 /* Bookmark.swift */,
-				CC3333333333333333333333 /* ReadingState.swift */,
+				913276274D142A547E278830 /* AppSettings.swift */,
+				59CED2EAEF9DA023F7DF80D1 /* Bookmark.swift */,
+				890BEB6EDE29DE4F4A045DE0 /* ReadingState.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -141,8 +152,8 @@
 			isa = PBXGroup;
 			children = (
 				12DB6F45CCFA3963AA9CE4BB /* .gitkeep */,
-				CC8888888888888888888888 /* FloatingWindow.swift */,
-				CC9999999999999999999999 /* FloatingWindowController.swift */,
+				BA717222D1E2C6B4AACB009A /* FloatingWindow.swift */,
+				A4873445B4923FDE784C3F9B /* FloatingWindowController.swift */,
 			);
 			path = Window;
 			sourceTree = "<group>";
@@ -183,7 +194,7 @@
 		C6129FE3875AAD49FB61CB31 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				AA3333333333333333333333 /* EncodingDetectorTests.swift */,
+				72B0D4D6117AFF1725C5E2C3 /* EncodingDetectorTests.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -191,6 +202,8 @@
 		CF3085A2E53E5599139E8683 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				42AD1517D67C1A2E3CD6775A /* ReadingViewModelTests.swift */,
+				78B4AE21527A88CE02CA4F2C /* SettingsViewModelTests.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -199,10 +212,10 @@
 			isa = PBXGroup;
 			children = (
 				22CD6A5061111CDE92547DCE /* .gitkeep */,
-				CC4444444444444444444444 /* ReadingContentView.swift */,
-				CC5555555555555555555555 /* ReadingView.swift */,
-				CC6666666666666666666666 /* SettingsComponents.swift */,
-				CC7777777777777777777777 /* SettingsView.swift */,
+				400ED245B8D94ECD85649355 /* ReadingContentView.swift */,
+				79B046870C5A5DE05B9A95EC /* ReadingView.swift */,
+				F34E69979E1CA7FC3FEBBE13 /* SettingsComponents.swift */,
+				487E928331377B0BB97E6897 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -281,21 +294,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4682F62F88426D4F54DF6252 /* AppSettings.swift in Sources */,
+				5597BA8A7D16741D8C4DF8F0 /* Bookmark.swift in Sources */,
+				1F21EE50C704F4F763E0336C /* EncodingDetector.swift in Sources */,
+				E2280F2D22736B64CFF4E6F2 /* FileManagerService.swift in Sources */,
+				7D7236C69F96D1A1B2572859 /* FloatingWindow.swift in Sources */,
+				4FCEE1C2C62E466C962680EF /* FloatingWindowController.swift in Sources */,
 				425B41CA21018F8D3C475355 /* NovelReaderApp.swift in Sources */,
+				76A8FAFCA9FD19E3C547DD71 /* PersistenceService.swift in Sources */,
+				5320830615C497FCDCC38100 /* ReadingContentView.swift in Sources */,
+				02E867BF2E7368FEAEDA8816 /* ReadingState.swift in Sources */,
+				873B4D5190F00A3E4A342217 /* ReadingView.swift in Sources */,
 				08F04072FFAEF43B08A530D2 /* ReadingViewModel.swift in Sources */,
+				9F17D355C94120B08125FE20 /* SettingsComponents.swift in Sources */,
+				81D8C083267DC7BCDB796B29 /* SettingsView.swift in Sources */,
 				BDB3F425C48DA1BB2ADCEBC8 /* SettingsViewModel.swift in Sources */,
-				BB1111111111111111111111 /* EncodingDetector.swift in Sources */,
-				BB2222222222222222222222 /* FileManagerService.swift in Sources */,
-				BB5555555555555555555555 /* PersistenceService.swift in Sources */,
-				DD1111111111111111111111 /* AppSettings.swift in Sources */,
-				DD2222222222222222222222 /* Bookmark.swift in Sources */,
-				DD3333333333333333333333 /* ReadingState.swift in Sources */,
-				DD4444444444444444444444 /* ReadingContentView.swift in Sources */,
-				DD5555555555555555555555 /* ReadingView.swift in Sources */,
-				DD6666666666666666666666 /* SettingsComponents.swift in Sources */,
-				DD7777777777777777777777 /* SettingsView.swift in Sources */,
-				DD8888888888888888888888 /* FloatingWindow.swift in Sources */,
-				DD9999999999999999999999 /* FloatingWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,9 +316,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB3333333333333333333333 /* EncodingDetectorTests.swift in Sources */,
-				BB4444444444444444444444 /* FileManagerServiceTests.swift in Sources */,
-				BB6666666666666666666666 /* PersistenceServiceTests.swift in Sources */,
+				F2E7411CE34E1DBB728A3D06 /* AppSettingsTests.swift in Sources */,
+				6151C59E16EBC76AFA1B67CF /* BookmarkTests.swift in Sources */,
+				DE549BD9FE4414F062D9EF24 /* EncodingDetectorTests.swift in Sources */,
+				A4C540B7AD2B518B8C4ED3FF /* FileManagerServiceTests.swift in Sources */,
+				AF9A111F86EF29555FF64BDC /* PersistenceServiceTests.swift in Sources */,
+				10F71204246B4AAF801A531A /* ReadingStateTests.swift in Sources */,
+				93E4CBCAC556056AA51AB0CF /* ReadingViewModelTests.swift in Sources */,
+				3438FF43CADB788CCE214040 /* SettingsViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

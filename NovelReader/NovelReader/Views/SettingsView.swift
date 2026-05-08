@@ -6,40 +6,40 @@ struct SettingsView: View {
 
     var body: some View {
         VStack(spacing: 20) {
-            Text("Settings")
+            Text("设置")
                 .font(.title2)
                 .fontWeight(.bold)
 
             Form {
-                Section("Appearance") {
+                Section("外观") {
                     CodableColorPicker(
-                        title: "Text Color",
+                        title: "文字颜色",
                         color: $viewModel.settings.textColor
                     )
                     CodableColorPicker(
-                        title: "Background Color",
+                        title: "背景颜色",
                         color: $viewModel.settings.backgroundColor
                     )
                     OpacitySlider(
-                        title: "Background Opacity",
+                        title: "背景透明度",
                         value: $viewModel.settings.backgroundOpacity
                     )
                 }
 
-                Section("Font") {
+                Section("字体") {
                     FontPicker(
                         fontName: $viewModel.settings.fontName,
                         availableFonts: SettingsViewModel.availableFontNames
                     )
                     HStack {
-                        Text("Size")
+                        Text("大小")
                         Slider(value: $viewModel.settings.fontSize, in: 12...36, step: 1)
                         Text("\(Int(viewModel.settings.fontSize))pt")
                             .monospacedDigit()
                             .frame(width: 40)
                     }
                     HStack {
-                        Text("Line Spacing")
+                        Text("行间距")
                         Slider(value: $viewModel.settings.lineSpacing, in: 1.0...3.0, step: 0.1)
                         Text(String(format: "%.1f", viewModel.settings.lineSpacing))
                             .monospacedDigit()
@@ -47,25 +47,25 @@ struct SettingsView: View {
                     }
                 }
 
-                Section("Behavior") {
-                    Toggle("Show text on hover only", isOn: $viewModel.settings.hoverToShowEnabled)
-                    Picker("Reading Mode", selection: $viewModel.settings.readingMode) {
-                        Text("Scroll").tag(AppSettings.ReadingMode.scroll)
-                        Text("Pagination").tag(AppSettings.ReadingMode.pagination)
+                Section("行为") {
+                    Toggle("鼠标悬停时才显示文字", isOn: $viewModel.settings.hoverToShowEnabled)
+                    Picker("阅读模式", selection: $viewModel.settings.readingMode) {
+                        Text("滚动").tag(AppSettings.ReadingMode.scroll)
+                        Text("翻页").tag(AppSettings.ReadingMode.pagination)
                     }
                     .pickerStyle(.segmented)
                 }
 
-                Section("Window") {
+                Section("窗口") {
                     HStack {
-                        Text("Width")
+                        Text("宽度")
                         Slider(value: $viewModel.settings.windowWidth, in: 250...1200, step: 10)
                         Text("\(Int(viewModel.settings.windowWidth))px")
                             .monospacedDigit()
                             .frame(width: 50)
                     }
                     HStack {
-                        Text("Height")
+                        Text("高度")
                         Slider(value: $viewModel.settings.windowHeight, in: 300...1000, step: 10)
                         Text("\(Int(viewModel.settings.windowHeight))px")
                             .monospacedDigit()
@@ -76,14 +76,14 @@ struct SettingsView: View {
             .formStyle(.grouped)
 
             HStack {
-                Button("Reset to Defaults") {
+                Button("恢复默认") {
                     viewModel.resetToDefaults()
                 }
                 .foregroundColor(.red)
 
                 Spacer()
 
-                Button("Done") {
+                Button("完成") {
                     dismiss()
                 }
                 .buttonStyle(.borderedProminent)

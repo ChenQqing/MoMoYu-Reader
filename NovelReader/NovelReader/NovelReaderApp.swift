@@ -21,13 +21,13 @@ struct NovelReaderApp: App {
         .windowStyle(.hiddenTitleBar)
         .commands {
             CommandGroup(after: .newItem) {
-                Button("Open File...") {
+                Button("打开文件...") {
                     appState.showFilePicker()
                 }
                 .keyboardShortcut("o", modifiers: .command)
             }
             CommandGroup(replacing: .appSettings) {
-                Button("Settings...") {
+                Button("设置...") {
                     appState.showSettings()
                 }
                 .keyboardShortcut(",", modifiers: .command)
@@ -93,7 +93,7 @@ class AppState: ObservableObject {
             backing: .buffered,
             defer: false
         )
-        settingsWindow.title = "Settings"
+        settingsWindow.title = "设置"
         settingsWindow.contentView = NSHostingView(
             rootView: SettingsView(viewModel: settingsVM)
         )
