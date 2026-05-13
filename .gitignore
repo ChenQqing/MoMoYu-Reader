@@ -22,3 +22,8 @@ Package.resolved
 .DS_Store
 *.swp
 *~.nib
+
+# Skills
+.agents/
+.claude/skills/
+skills-lock.json

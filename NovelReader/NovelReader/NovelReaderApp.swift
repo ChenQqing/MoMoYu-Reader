@@ -1,4 +1,5 @@
 import SwiftUI
+import Combine
 
 @main
 struct NovelReaderApp: App {
@@ -35,7 +36,7 @@ struct MainView: View {
     @ObservedObject var appState: AppState
 
     var body: some View {
-        if appState.readingVM.currentFileName != nil {
+        if appState.isFileLoaded {
             ReadingView(
                 readingVM: appState.readingVM,
                 settingsVM: appState.settingsVM
@@ -52,16 +53,30 @@ struct MainView: View {
 /// Top-level app state coordinator
 class AppState: ObservableObject {
     @Published var isSettingsOpen = false
+    @Published var isFileLoaded = false
 
     let readingVM = ReadingViewModel()
     let settingsVM = SettingsViewModel()
     private let windowController = FloatingWindowController()
 
+    init() {
+        readingVM.$currentFileName
+            .map { $0 != nil }
+            .receive(on: RunLoop.main)
+            .assign(to: &$isFileLoaded)
+
+        NotificationCenter.default.addObserver(
+            forName: NSApplication.willTerminateNotification,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in
+            self?.readingVM.saveState()
+        }
+    }
+
     func configureWindow(_ window: NSWindow) {
-        // Apply floating level
         window.level = .floating
 
-        // Apply background from settings
         let settings = settingsVM.settings
         windowController.openWindow(
             size: NSSize(
@@ -71,7 +86,6 @@ class AppState: ObservableObject {
             content: MainView(appState: self)
         )
 
-        // Close the default window, use our floating one
         window.close()
     }
 

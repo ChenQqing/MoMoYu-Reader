@@ -4,12 +4,13 @@ struct LibraryView: View {
     @ObservedObject var readingVM: ReadingViewModel
     @ObservedObject var settingsVM: SettingsViewModel
     @State private var books: [BookItem] = []
-    @State private var showFilePicker = false
     @State private var showSettings = false
+    @State private var errorMessage: String?
 
     var body: some View {
         ZStack {
             backgroundView
+                .onTapGesture(count: 2) { showAddBookPicker() }
 
             if books.isEmpty {
                 emptyStateView
@@ -18,21 +19,16 @@ struct LibraryView: View {
             }
         }
         .frame(minWidth: 300, idealWidth: 400, minHeight: 400, idealHeight: 500)
-        .contextMenu {
-            Button("添加书籍") { showFilePicker = true }
-            Button("设置") { showSettings = true }
-        }
-        .fileImporter(
-            isPresented: $showFilePicker,
-            allowedContentTypes: [.plainText],
-            allowsMultipleSelection: true
-        ) { result in
-            if case .success(let urls) = result {
-                addBooks(urls: urls)
-            }
-        }
         .sheet(isPresented: $showSettings) {
             SettingsView(viewModel: settingsVM)
+        }
+        .alert("错误", isPresented: Binding(
+            get: { errorMessage != nil },
+            set: { if !$0 { errorMessage = nil } }
+        )) {
+            Button("确定", role: .cancel) { errorMessage = nil }
+        } message: {
+            Text(errorMessage ?? "")
         }
         .onAppear {
             books = PersistenceService.loadBooks()
@@ -62,7 +58,7 @@ struct LibraryView: View {
                 .font(.caption)
                 .foregroundColor(.secondary)
             Button("添加书籍") {
-                showFilePicker = true
+                showAddBookPicker()
             }
             .buttonStyle(.borderedProminent)
         }
@@ -76,7 +72,7 @@ struct LibraryView: View {
                     .font(.title2)
                     .fontWeight(.bold)
                 Spacer()
-                Button(action: { showFilePicker = true }) {
+                Button(action: { showAddBookPicker() }) {
                     Image(systemName: "plus")
                         .font(.system(size: 16))
                 }
@@ -110,17 +106,28 @@ struct LibraryView: View {
         }
     }
 
+    private func showAddBookPicker() {
+        let panel = NSOpenPanel()
+        panel.allowedContentTypes = [.plainText]
+        panel.allowsMultipleSelection = true
+        panel.canChooseDirectories = false
+        if panel.runModal() == .OK {
+            addBooks(urls: panel.urls)
+        }
+    }
+
     private func addBooks(urls: [URL]) {
         for url in urls {
-            guard url.startAccessingSecurityScopedResource() else { continue }
-            defer { url.stopAccessingSecurityScopedResource() }
-
             let filePath = url.path
             let fileName = url.lastPathComponent
 
+            guard FileManager.default.fileExists(atPath: filePath) else {
+                errorMessage = "文件不存在: \(fileName)"
+                continue
+            }
+
             // Don't add duplicates
             if books.contains(where: { $0.filePath == filePath }) {
-                // Update last opened
                 if let index = books.firstIndex(where: { $0.filePath == filePath }) {
                     books[index].lastOpened = Date()
                 }
@@ -135,11 +142,21 @@ struct LibraryView: View {
     }
 
     private func openBook(_ book: BookItem) {
+        guard FileManager.default.fileExists(atPath: book.filePath) else {
+            errorMessage = "文件不存在或已被移动: \(book.fileName)"
+            return
+        }
+
         if let index = books.firstIndex(where: { $0.id == book.id }) {
             books[index].lastOpened = Date()
             PersistenceService.saveBooks(books)
         }
-        try? readingVM.loadFile(at: book.filePath)
+
+        do {
+            try readingVM.loadFile(at: book.filePath)
+        } catch {
+            errorMessage = "无法打开文件: \(error.localizedDescription)"
+        }
     }
 
     private func deleteBook(_ book: BookItem) {
@@ -159,6 +176,7 @@ struct BookRow: View {
                 Text(book.fileName)
                     .font(.body)
                     .lineLimit(1)
+                    .foregroundColor(.primary)
                 Text("上次打开: \(book.lastOpened, style: .relative)")
                     .font(.caption)
                     .foregroundColor(.secondary)
@@ -171,7 +189,9 @@ struct BookRow: View {
         .padding(.horizontal, 16)
         .padding(.vertical, 10)
         .contentShape(Rectangle())
-        .onTapGesture { onTap() }
+        .onTapGesture {
+            onTap()
+        }
         .contextMenu {
             Button("打开") { onTap() }
             Button("删除", role: .destructive) { onDelete() }

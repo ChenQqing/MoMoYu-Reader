@@ -6,36 +6,35 @@ struct ReadingView: View {
     @State private var isHovering = false
     @State private var showFilePicker = false
     @State private var showSettings = false
+    @State private var showChapterList = false
+    @State private var coordinatorRef: ReadingContentView.Coordinator?
 
     var body: some View {
         ZStack {
-            // Background
             backgroundView
 
-            // Content
-            if readingVM.fullText.isEmpty {
+            if readingVM.displayText.isEmpty {
                 emptyStateView
             } else {
                 readingContentView
             }
         }
         .frame(
-            minWidth: 250, idealWidth: settingsVM.settings.windowWidth,
-            minHeight: 300, idealHeight: settingsVM.settings.windowHeight
+            idealWidth: settingsVM.settings.windowWidth,
+            idealHeight: settingsVM.settings.windowHeight
         )
         .contextMenu {
-            Button("返回书库") { readingVM.currentFileName = nil }
+            Button("返回书库") {
+                readingVM.saveState()
+                readingVM.currentFileName = nil
+            }
             Button("打开文件") { showFilePicker = true }
             Button("设置") { showSettings = true }
 
             if !readingVM.chapters.isEmpty {
                 Divider()
-                Menu("目录") {
-                    ForEach(readingVM.chapters) { chapter in
-                        Button(chapter.title) {
-                            readingVM.jumpToChapter(chapter)
-                        }
-                    }
+                Button("目录 (\(readingVM.currentChapterIndex + 1)/\(readingVM.chapters.count))") {
+                    showChapterList = true
                 }
             }
 
@@ -53,6 +52,18 @@ struct ReadingView: View {
                 }
             }
         }
+        .popover(isPresented: $showChapterList) {
+            ChapterListView(
+                chapters: readingVM.chapters,
+                currentIndex: Binding(
+                    get: { readingVM.currentChapterIndex },
+                    set: { readingVM.currentChapterIndex = $0 }
+                ),
+                onSelect: { chapter in
+                    readingVM.jumpToChapter(chapter)
+                }
+            )
+        }
         .fileImporter(
             isPresented: $showFilePicker,
             allowedContentTypes: [.plainText]
@@ -65,7 +76,7 @@ struct ReadingView: View {
             SettingsView(viewModel: settingsVM)
         }
         .onAppear {
-            isHovering = true // Start visible
+            isHovering = true
         }
         .onDisappear {
             readingVM.saveState()
@@ -102,7 +113,7 @@ struct ReadingView: View {
     @ViewBuilder
     private var readingContentView: some View {
         ReadingContentView(
-            text: readingVM.fullText,
+            text: readingVM.displayText,
             font: NSFont(
                 name: settingsVM.settings.fontName,
                 size: settingsVM.settings.fontSize
@@ -110,9 +121,27 @@ struct ReadingView: View {
             textColor: settingsVM.settings.textColor.nsColor,
             lineSpacing: settingsVM.settings.lineSpacing,
             hoverToShowEnabled: settingsVM.settings.hoverToShowEnabled,
+            shouldScrollToTop: readingVM.needsScrollToTop,
             isHovering: $isHovering,
             onScrollPositionChanged: { offset in
                 readingVM.updateScrollPosition(offset)
+            },
+            onNearBottom: {
+                readingVM.loadMoreChaptersAtEnd()
+            },
+            onScrolledToTop: {
+                readingVM.needsScrollToTop = false
+            },
+            onCoordinatorReady: { coord in
+                coordinatorRef = coord
+            },
+            onTextApplied: {
+                if let absOffset = readingVM.pendingScrollToAbsoluteOffset,
+                   let displayOffset = readingVM.displayOffsetForAbsoluteOffset(absOffset),
+                   let coord = coordinatorRef {
+                    readingVM.pendingScrollToAbsoluteOffset = nil
+                    coord.scrollToCharacterOffset(displayOffset)
+                }
             }
         )
         .animation(.easeInOut(duration: 0.2), value: isHovering)

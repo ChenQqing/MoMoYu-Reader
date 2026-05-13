@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA11BB22CC33DD44EE55FF66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF66EE55DD44CC33BB22AA11 /* Assets.xcassets */; };
 		02E867BF2E7368FEAEDA8816 /* ReadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890BEB6EDE29DE4F4A045DE0 /* ReadingState.swift */; };
 		08F04072FFAEF43B08A530D2 /* ReadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC0621529BD18B27646D24 /* ReadingViewModel.swift */; };
 		10F71204246B4AAF801A531A /* ReadingStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072C3B11508155B65070BD25 /* ReadingStateTests.swift */; };
@@ -27,6 +28,7 @@
 		93E4CBCAC556056AA51AB0CF /* ReadingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AD1517D67C1A2E3CD6775A /* ReadingViewModelTests.swift */; };
 		9F17D355C94120B08125FE20 /* SettingsComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34E69979E1CA7FC3FEBBE13 /* SettingsComponents.swift */; };
 		A4C540B7AD2B518B8C4ED3FF /* FileManagerServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BEC2F24CB01D0DD2352374 /* FileManagerServiceTests.swift */; };
+		A93941A37B94E9F6BB7FC599 /* ChapterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1038D47530C4E60F15883ABE /* ChapterListView.swift */; };
 		AF9A111F86EF29555FF64BDC /* PersistenceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0C2A0434406F1F1BDABE89 /* PersistenceServiceTests.swift */; };
 		BDB3F425C48DA1BB2ADCEBC8 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA43903D7D4743E7BC39333 /* SettingsViewModel.swift */; };
 		DACDB0C5996FEA5399722981 /* ChapterParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DF6463E99A14EE7A86D573 /* ChapterParser.swift */; };
@@ -47,7 +49,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FF66EE55DD44CC33BB22AA11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		072C3B11508155B65070BD25 /* ReadingStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingStateTests.swift; sourceTree = "<group>"; };
+		1038D47530C4E60F15883ABE /* ChapterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterListView.swift; sourceTree = "<group>"; };
 		12DB6F45CCFA3963AA9CE4BB /* .gitkeep */ = {isa = PBXFileReference; path = .gitkeep; sourceTree = "<group>"; };
 		12DF6463E99A14EE7A86D573 /* ChapterParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterParser.swift; sourceTree = "<group>"; };
 		1CB81E8560FBE6FB3C60743F /* BookmarkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkTests.swift; sourceTree = "<group>"; };
@@ -181,6 +185,7 @@
 		B50231C61B2C9FDE2824D6F0 /* NovelReader */ = {
 			isa = PBXGroup;
 			children = (
+				FF66EE55DD44CC33BB22AA11 /* Assets.xcassets */,
 				496B96BB838A6B30B58D2D5F /* Info.plist */,
 				AD5468FFD2CE9D9E4CDBA357 /* NovelReaderApp.swift */,
 				7CB7C2401DAA3137634163F1 /* Models */,
@@ -223,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				22CD6A5061111CDE92547DCE /* .gitkeep */,
+				1038D47530C4E60F15883ABE /* ChapterListView.swift */,
 				AE5C4D572FB8CC16EC96D742 /* LibraryView.swift */,
 				400ED245B8D94ECD85649355 /* ReadingContentView.swift */,
 				79B046870C5A5DE05B9A95EC /* ReadingView.swift */,
@@ -258,6 +264,7 @@
 			buildConfigurationList = 049D13E25DAFB810B19DAFF1 /* Build configuration list for PBXNativeTarget "NovelReader" */;
 			buildPhases = (
 				51145169193469BA972183A0 /* Sources */,
+				112233445566778899AABBCC /* Resources */,
 			);
 			buildRules = (
 			);
@@ -301,6 +308,17 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		112233445566778899AABBCC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA11BB22CC33DD44EE55FF66 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		51145169193469BA972183A0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -310,6 +328,7 @@
 				EB563AB54B8F87AFECEAC203 /* BookItem.swift in Sources */,
 				5597BA8A7D16741D8C4DF8F0 /* Bookmark.swift in Sources */,
 				4CF33800EEF7011A5863A637 /* Chapter.swift in Sources */,
+				A93941A37B94E9F6BB7FC599 /* ChapterListView.swift in Sources */,
 				DACDB0C5996FEA5399722981 /* ChapterParser.swift in Sources */,
 				1F21EE50C704F4F763E0336C /* EncodingDetector.swift in Sources */,
 				E2280F2D22736B64CFF4E6F2 /* FileManagerService.swift in Sources */,
@@ -402,7 +421,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "摸摸鱼";
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -502,7 +521,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "摸摸鱼";
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";

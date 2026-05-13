@@ -14,7 +14,27 @@
       "Bash(swift build *)",
       "Bash(git *)",
       "Bash(sudo xcode-select -s /Applications/Xcode.app/Contents/Developer)",
-      "Bash(export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer)"
+      "Bash(export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer)",
+      "Bash(open *)",
+      "Bash(pkill -x NovelReader)",
+      "Bash(/Users/jake/Library/Developer/Xcode/DerivedData/NovelReader-dtirgxpvplzguwgfwnehunerpksu/Build/Products/Debug/NovelReader.app/Contents/MacOS/NovelReader)",
+      "Bash(echo \"App launched, PID: $!\")",
+      "Bash(python3 /tmp/check_offset.py)",
+      "Bash(xcodebuild -project NovelReader.xcodeproj -scheme NovelReader -configuration Debug build)",
+      "Bash(xcodebuild -project NovelReader.xcodeproj -scheme NovelReader -configuration Release build)",
+      "Bash(xcodebuild -project NovelReader.xcodeproj -scheme NovelReader -configuration Release -arch arm64 -arch x86_64 build)",
+      "Bash(cp -R /Users/jake/Library/Developer/Xcode/DerivedData/NovelReader-dtirgxpvplzguwgfwnehunerpksu/Build/Products/Release/NovelReader.app /tmp/NovelReader-dmg/)",
+      "Bash(ln -s /Applications /tmp/NovelReader-dmg/Applications)",
+      "Bash(hdiutil create *)",
+      "Bash(sips *)",
+      "Bash(xcodebuild -project NovelReader.xcodeproj -scheme NovelReader -configuration Release -arch arm64 -arch x86_64 CODE_SIGNING_ALLOWED=NO build)",
+      "Bash(npx skills@latest *)",
+      "Bash(npm search *)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:www.npmjs.com)",
+      "Bash(npm view *)",
+      "Bash(brew list *)",
+      "Bash(gh auth *)"
     ]
   }
 }

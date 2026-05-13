@@ -15,6 +15,7 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.novelreader.app
+        PRODUCT_NAME: 摸摸鱼
         INFOPLIST_FILE: NovelReader/Info.plist
         SWIFT_VERSION: "5.9"
         MACOSX_DEPLOYMENT_TARGET: "13.0"

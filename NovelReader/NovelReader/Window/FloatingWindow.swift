@@ -14,9 +14,9 @@ class FloatingWindow: NSWindow {
         // Float above all windows
         self.level = .floating
 
-        // Transparent background support
-        self.isOpaque = false
-        self.backgroundColor = .clear
+        // Keep window opaque to event system (use nearly-clear color)
+        self.isOpaque = true
+        self.backgroundColor = NSColor(white: 0, alpha: 0.004)
         self.hasShadow = true
 
         // Title bar — hide completely
@@ -27,19 +27,19 @@ class FloatingWindow: NSWindow {
         // Allow dragging from content area
         self.isMovableByWindowBackground = true
 
-        // Minimum size
-        self.minSize = NSSize(width: 250, height: 300)
+        self.minSize = NSSize(width: 1, height: 1)
     }
 
     /// Update window background based on settings
     func applyBackground(color: NSColor, opacity: Double) {
         if opacity <= 0.01 {
-            self.backgroundColor = .clear
-            self.isOpaque = false
+            // Nearly transparent but still opaque to event system
+            self.backgroundColor = NSColor(white: 0, alpha: 0.004)
+            self.isOpaque = true
             self.hasShadow = false
         } else {
             self.backgroundColor = color.withAlphaComponent(CGFloat(opacity))
-            self.isOpaque = false
+            self.isOpaque = true
             self.hasShadow = true
         }
     }
