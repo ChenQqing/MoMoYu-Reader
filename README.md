@@ -20,27 +20,27 @@
 
 ## 安装方式
 
-### 方式一：下载安装包
+### 方式一：下载安装包（推荐）
 
-从 [Releases](https://github.com/ChenQqing/MoMoYu-Reader/releases) 页面下载最新版本的 `摸摸鱼阅读.app`，拖入「应用程序」文件夹即可使用。
+1. 从 [Releases](https://github.com/ChenQqing/MoMoYu-Reader/releases) 页面下载 `MoMoYu-Reader.dmg`
+2. 双击打开 DMG，将 `摸摸鱼.app` 拖到 `应用程序` 文件夹
+3. **首次打开前**，在终端运行以下命令解除系统限制：
 
-> 首次打开可能提示"无法验证开发者"，请在「系统设置 → 隐私与安全性」中点击「仍要打开」。
+```bash
+sudo xattr -r -d com.apple.quarantine /Applications/摸摸鱼.app
+```
+
+> 本应用未付费签名，macOS 会标记为"已损坏"，运行上述命令即可正常使用。
 
 ### 方式二：源码编译
 
 ```bash
-# 克隆仓库
 git clone https://github.com/ChenQqing/MoMoYu-Reader.git
 cd MoMoYu-Reader/NovelReader
-
-# 使用 XcodeGen 生成项目（如已安装）
-xcodegen generate
-
-# 打开项目编译
 open NovelReader.xcodeproj
 ```
 
-在 Xcode 中选择目标设备为 "My Mac"，点击运行即可。
+在 Xcode 中选择 "My Mac"，点击运行即可（源码编译无需上述命令）。
 
 ## 使用说明
 
