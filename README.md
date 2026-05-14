@@ -20,14 +20,19 @@
 
 ## 安装方式
 
-### 方式一：一键安装（推荐）
+### 方式一：下载安装
 
 1. 从 [Releases](https://github.com/ChenQqing/MoMoYu-Reader/releases) 页面下载 `MoMoYu-Reader.dmg`
-2. 双击打开 DMG
-3. **右键点击** `install.command` → 选择「打开」（系统会要求输入密码）
-4. 安装完成后在「应用程序」或 Launchpad 中打开「摸摸鱼」
+2. 双击打开 DMG，将 `摸摸鱼.app` 拖到 `应用程序` 文件夹
+3. 打开「终端」，运行以下命令解除限制：
 
-> 本应用未付费签名，macos 会标记为"已损坏"，安装脚本会自动处理。
+```bash
+sudo xattr -r -d com.apple.quarantine /Applications/摸摸鱼.app
+```
+
+4. 在 Launchpad 或应用程序中打开「摸摸鱼」
+
+> 本应用未经 Apple 签名，macOS 会标记为"已损坏"，运行上述命令即可正常使用。
 
 ### 方式二：源码编译
 
