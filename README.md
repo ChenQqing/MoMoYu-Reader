@@ -24,7 +24,7 @@
 
 1. 从 [Releases](https://github.com/ChenQqing/MoMoYu-Reader/releases) 页面下载 `MoMoYu-Reader.dmg`
 2. 双击打开 DMG
-3. 双击运行 `install.command`（系统会要求输入密码用于解除限制）
+3. **右键点击** `install.command` → 选择「打开」（系统会要求输入密码）
 4. 安装完成后在「应用程序」或 Launchpad 中打开「摸摸鱼」
 
 > 本应用未付费签名，macos 会标记为"已损坏"，安装脚本会自动处理。
